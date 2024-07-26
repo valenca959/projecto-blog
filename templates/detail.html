@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load markdownify %}
+{%block content %}
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-8'>
+            <div class='card'>
+                <h1>{% block title %}{{ object.title}}{% endblock title %}
+                <p class="text-muted">{{ object.date_posted }}</p>
+                <p class="card-text">{{ object.content | safe | markdownify}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
