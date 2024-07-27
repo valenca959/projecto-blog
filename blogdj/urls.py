@@ -19,5 +19,6 @@ from blog.urls import urlpatterns as blog_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
     path("",include(blog_urls)),
 ]

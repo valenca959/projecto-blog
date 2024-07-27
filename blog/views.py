@@ -5,6 +5,7 @@ from django.urls import reverse
 from django.utils.text import slugify
 from django.views.generic import ListView, DetailView
 from .models import Post
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class PostForm(ModelForm):
@@ -13,6 +14,7 @@ class PostForm(ModelForm):
         fields = ['title', 'content', 'published']
 
 
+@login_required
 def new_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST)
